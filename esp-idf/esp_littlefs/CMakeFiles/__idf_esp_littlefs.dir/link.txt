@@ -1,0 +1,2 @@
+/home/rasheek/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc libesp_littlefs.a CMakeFiles/__idf_esp_littlefs.dir/src/littlefs/lfs.c.obj CMakeFiles/__idf_esp_littlefs.dir/src/littlefs/lfs_util.c.obj CMakeFiles/__idf_esp_littlefs.dir/src/esp_littlefs.c.obj CMakeFiles/__idf_esp_littlefs.dir/src/littlefs_api.c.obj
+/home/rasheek/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib libesp_littlefs.a

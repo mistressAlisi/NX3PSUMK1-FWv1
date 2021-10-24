@@ -1,0 +1,73 @@
+<h2>Client Mode Provisioning:</h2>
+<h4>Please select the WiFi network you would like to join below and enter the password.</h4>
+
+  <div class="form-group">
+    <label for="wifi_ap_ssid"><strong>Network SSID/Name:</strong></label>
+    <select id="wifi_ap_ssid" name="wifi_ap_ssid">
+    <option value="">Please select...</option>
+    </select>
+    </div>
+    <br/>
+    <p class="alert alert-success" id="scanning" style="display: none;"><i class="fas fa-hourglass-half"></i> Please wait: Scanning for Networks...</p>
+    <input type="hidden" id="mode" value="sta" name="mode"/>
+    <label for="wifi_ap_pw">Network Password:</label>
+    <div class="input-group">
+    <input type="password" class="form-control" name="wifi_ap_pw" id="wifi_ap_pw" placeholder="WiFi network password or blank for none.">
+    </div>
+    <label for="wifi_ap_pw">Confirm Network Password:</label>
+    <div class="input-group">
+    <input type="password" class="form-control" name="wifi_ap_pw2"  id="wifi_ap_pw2" placeholder="Confirm WiFi password or leave blank.">
+    </div>
+    <hr/>
+    <h5>IPv4 Config:</h5>
+    <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="dhcp_enabled"  checked name="dhcp">
+    <label class="form-check-label" for="dhcp_enabled">Use DHCP (Auto)</label>
+    </div>
+    <hr/>
+    <h5>Manual IPv4 Config:</h5>
+    <div class="input-group">
+    <label for="ipv4">Address:</label>
+    &#160;
+    <input type="number" class="form-control" name="ip1" id="ip1" min="0" max="255" value="100"></input>.
+    <input type="number" class="form-control" name="ip2" id="ip2" min="0" max="255" value="200"></input>.
+    <input type="number" class="form-control" name="ip3" id="ip3" min="0" max="255" value="100"></input>.
+    <input type="number" class="form-control" name="ip4" id="ip4" min="0" max="255" value="1"></input>
+    </div>
+    <br/>
+        <div class="input-group">
+        <label for="ipv4">Netmask:</label>
+    &#160;
+    <input type="number" class="form-control" name="nm1" id="nm1" min="0" max="255" value="255"></input>.
+    <input type="number" class="form-control" name="nm2" id="nm2" min="0" max="255" value="255"></input>.
+    <input type="number" class="form-control" name="nm3" id="nm3" min="0" max="255" value="255"></input>.
+    <input type="number" class="form-control" name="nm4" id="nm4" min="0" max="255" value="0"></input>
+    </div>
+    <br/>
+    <div class="input-group">
+    <label for="ipv4">Gateway:</label>
+    &#160;
+    <input type="number" class="form-control" name="gw1" id="gw1" min="0" max="255" value="100"></input>.
+    <input type="number" class="form-control" name="gw2" id="gw2" min="0" max="255" value="200"></input>.
+    <input type="number" class="form-control" name="gw3" id="gw3" min="0" max="255" value="100"></input>.
+    <input type="number" class="form-control" name="gw4" id="gw4" min="0" max="255" value="254"></input>
+    </div>
+    <br/>
+    <div class="input-group">
+    <label for="ipv4">DNS:</label>
+    &#160;
+    <input type="number" class="form-control" name="dn1" id="dn1" min="0" max="255" value="100"></input>.
+    <input type="number" class="form-control" name="dn2" id="dn2" min="0" max="255" value="200"></input>.
+    <input type="number" class="form-control" name="dn3" id="dn3" min="0" max="255" value="100"></input>.
+    <input type="number" class="form-control" name="dn4" id="dn4" min="0" max="255" value="254"></input>
+    </div>
+    <br/>
+    <br/>
+    <hr/>
+    <label>Network Utilities:</label>
+    <div class="input-group">
+      <button type="button" class="btn btn-success" onclick="setup_scan();" id="scan_btn"><i class="fas fa-signal"></i>&#160;(Re-)Scan for Networks</button>
+      &#160;
+      <button type="button" class="btn btn-primary" onclick="setup_addap();" id="addap_btn"><i class="far fa-plus-square"></i>&#160;Add hidden network</button>
+    </div>
+

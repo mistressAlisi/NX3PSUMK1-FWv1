@@ -1,0 +1,95 @@
+
+ <section class="section-lg">
+        <div class="container-fluid">
+
+        <div class="col-md-12">
+      
+        </div>
+        
+        </div>
+        <div class="row">
+           <div class="card">
+                <div class="card-header card-header-text card-header-primary">
+                  <div class="card-text">
+                    <h4 class="card-title">System Settings</h4>
+                  </div>
+                  </div>
+        <div class="card-body">
+
+        <p>You can review, and change all relevant settings and parameters for your D9NX3 fixture in this tab (Please note: Mesh and WiFi settings are managed in their own tabs.)</p>      
+        </div>
+        <div class="alert alert-success" role="alert" id="changeSuccess" style="display: none;">
+        <i class="fas fa-check-circle"></i>
+        Settings Changed!
+        </div>
+        <h4>Time and Date:</h4>
+        <form id="profileForm" onSubmit="changeProfile(); return false;" method="POST" target="#">
+        <label for="datetime" class="form-label"><strong>Current Time:</strong></label>
+        <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Current Time and Date" aria-label="Time and Date" disabled="disabled" aria-describedby="button-addon2" id="datetime" name="datetime">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Adjust</button>
+        </div>
+        <p>Remote NTP server time sync is possible, or you may enter time manually using the control above once NTP is disabled.</p>
+        <label for="timesrc" class="form-label"><strong>Network Time Server (NTP) support:</strong></label>
+        <div class="form-check form-switch">
+         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+         <label class="form-check-label" for="timesrc">Enable NTP Client</label>
+        </div>
+        
+        <label for="ntpsrv" class="form-label"><strong>NTP Server Name:</strong></label>
+          <input type="text" class="form-control" placeholder="NTP Server" aria-label="NTP Server"  aria-describedby="button-addon2" id="ntpsrv" name="ntpsrv" value="pool.ntp.org">
+
+        <label for="ntptz" class="form-label"><strong>Use Timezone:</strong></label>
+        <select id="ntptz" name="ntptz" class="form-select" aria-label="Default select example">
+                    <option selected value="0">Select timezone...</option>
+                    <option  value="-36000">GMT -10 / Unalaska</option>
+                    <option  value="-32400">GMT -9  </option>
+                    <option  value="-28800">GMT -8 / Fairbanks </option>
+                    <option  value="-25200">GMT -7 / PST San Francisco</option>
+                    <option  value="-21600">GMT -6 / MST Denver</option>
+                    <option  value="-18000">GMT -5 / CST Houston </option>
+                    <option  value="-14400">GMT -4 / EST Philadelphia</option>
+                    <option  value="-10800">GMT -3 / St Johns</option>
+                    <option  value="-7200">GMT -2 / Greenland</option>
+                    <option  value="-3600">GMT -1 / Iceland</option>
+                    <option  value="0">GMT / UTC </option>
+                    <option  value="3600">GMT +1 / London</option>
+                    <option  value="7200">GMT +2 / Berlin </option>
+                    <option  value="10800">GMT +3 / Moscow </option>
+                    <option  value="14400">GMT +4 / Samara</option>
+                    <option  value="18000">GMT +5 / Yekaterinburg</option>
+                    <option  value="21600">GMT +6 / Omsk </option>
+                    <option  value="25200">GMT +7 / Novobivorsk</option>
+                    <option  value="28800">GMT +8 / Beijing</option>
+                    <option  value="32400">GMT  +9 / Tokyo</option>
+                    <option  value="36000">GMT +10 / Brisbane</option>
+                    <option  value="39600">GMT +11 / Sidney </option>
+        </select>
+       
+        
+        <br/>
+         <div class="alert alert-success" role="alert" id="ntpsync" style="display: none;">
+        <i class="fas fa-magic"></i> NTP Sync happens in the background.
+        </div>
+        <hr/>
+        <h4>UI Settings:</h4>
+        
+        </form>
+        <hr/>
+        <br/>
+        <br/>
+        <button type="button" class="btn btn-primary" id="p_save">Save Settings</button>
+        <br/>
+        <br/>
+        <hr/>
+        </div>
+        </div>
+
+       
+
+</section>
+
+
+<script type="text/javascript">
+
+</script>

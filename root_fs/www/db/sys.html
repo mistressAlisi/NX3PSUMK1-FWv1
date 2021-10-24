@@ -1,0 +1,186 @@
+        <form class="needs-validation" novalidate="" onsubmit="save_sys(); return false;" id="sys_form" method="POST" action="#">
+        <h4 class="mb-3"><i class="fas fa-wifi"></i>&#160;WiFi Settings</h4>
+        <p class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> Warning!! Be careful when changing WiFi settings - it may make the system unreachable without a hardware reset! </p>
+        <div class="card">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="wifim" class="form-label"><i class="fas fa-podcast"></i>&#160;WiFi Mode:</label>
+              <select class="form-select" aria-label="Select WiFi Operation Mode:" name="wifim" id="wifim" onchange="sys_wifimode();">
+                <option value="a" selected>Access Point / Standalone</option>
+                <option value="i">Infrastructure / Client </option>
+            </select>
+              <div class="invalid-feedback">
+                Valid Mode is required
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="ssid" class="form-label"><i class="fas fa-wifi"></i>&#160;SSID/Network Name:</label>
+                <select class="form-select" aria-label="Select WiFi Network:" id="ssid" name="ssid" disabled="true">
+                <option value="__softAP" selected>[Access Point / Standalone Network]</option>
+    
+            </select>
+              <div class="invalid-feedback">
+                Valid network name is required.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="username" class="form-label"><i class="fas fa-key">&#160;</i>Password (WPA2):</label>
+              <div class="input-group has-validation">
+                <input type="password" class="form-control" id="wikey" name="wikiey" placeholder="" required="">
+              <div class="invalid-feedback">
+                  Valid network password is required
+                </div>
+              </div>
+              </div>
+              <div class="col-12">
+              <button class="w-40 btn btn-success" type="button" onclick="sys_scan(); return false;"> <i class="fab fa-searchengin"></i>&#160;Scan for Networks</button>
+              &#160;
+               <button class="w-40 btn btn-primary " type="button" onclick="sys_addnw();"> <i class="fas fa-plus"></i></i>&#160;Add Network</button>
+               &#160;
+                <button class="w-40 btn btn-info " type="button" onclick="sys_softnw();"> <i class="fas fa-wifi"></i></i>&#160;Standalone AP SSID</button>
+              <br/>
+              <br/>
+              </div>
+            </div>
+        </div>
+        <br/><br/>
+        
+        <h4 class="mb-3"><i class="fas fa-server"></i>&#160;IPv4 Settings</h4>
+        <p class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> Warning!! Be careful when changing IPv4 settings - it may make the system unreachable without a hardware reset! </p>
+        <div class="card">
+
+          <div class="row g-3">
+            <div class="col-sm-12">
+              <label for="firstName" class="form-label">IpV4 Mode:</label>
+              <select class="form-select" aria-label="Select IpV4 Operation Mode:" name="ipv4_m" id="ipv4_m" onchange="sys_ipmode();">
+                <option value="s" selected>Static IP</option>
+                <option value="d">DHCP</option>
+            </select>
+              <div class="invalid-feedback">
+                Valid Mode is required
+              </div>
+            </div>
+            </div>
+            
+             <div class="col-sm-12">
+              <label for="lastName" class="form-label">Address:</label>
+              <input type="text" class="form-control" name="ipv4_ad" id="ipv4_ad" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+                Valid ipv4 address is required.
+              </div>
+         
+
+           <div class="col-sm-12">
+              <label for="username" class="form-label">Netmask:</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" name="ipv4_nm" id="ipv4_nm" placeholder="" required="">
+              <div class="invalid-feedback">
+                  Valid network mask is required
+                </div>
+              </div>
+             <div class="col-sm-12">
+              <label for="username" class="form-label">Gateway:</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" name="ipv4_gw" id="ipv4_gw" placeholder="" required="">
+              <div class="invalid-feedback">
+                  Valid network mask is required
+                </div>
+              </div>
+              
+                <div class="col-sm-12">
+              <label for="username" class="form-label">DNS Server:</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" name="ipv4_dn" id="ipv4_dn" placeholder="" required="">
+              <div class="invalid-feedback">
+                  Valid network mask is required
+                </div>
+              </div>
+              </div>
+              </div>
+            </div>
+        </div>
+        </div>
+        <br/><br/>
+        <h4 class="mb-3"><i class="fas fa-stopwatch"></i>&#160;Time Settings</h4>
+        <p class="alert alert-primary"><i class="fas fa-history"></i>&#160;Local clock changes are applied immediately with the selected spectrum profile. </p>
+        <div class="card">
+
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label"><i class="far fa-clock"></i>&#160;Current Time:</label>
+             <input type="text" class="form-control" name="time" id="time" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+                Valid Time is required
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label"><i class="far fa-calendar-alt"></i>&#160;Current Date:</label>
+              <input type="text" class="form-control" name="date" id="date" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+                Valid date is required.
+              </div>
+            </div>
+
+           
+            </div>
+            </div>
+            
+            <br/><br/>
+            <br/><br/>
+          <button class="w-60 btn btn-primary btn-lg" type="submit"> <i class="fas fa-save"></i>&#160;Save Changes</button>
+           <button class="w-60 btn btn-danger btn-lg" type="button"> <i class="far fa-window-close"></i>&#160;Revert Changes</button>
+          <br/>
+          <br/>
+          <br/>
+      </div>
+      <input type="hidden" id="time_change" value="false"/>
+      </form>
+      </div>
+      </div>
+  
+<!-- Scan for SSID Dialogue !-->
+  <div class="modal fade" id="sys_scanning" tabindex="-1" aria-labelledby="scanModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="scanModalLabel">Scanning...</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+        </div>
+        Scanning for WiFi Networks in Range:  The SSID Selector will populate when complete.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Standalone AP SSID Name Dialogue !-->
+  <div class="modal fade" id="sys_addnw" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true"  data-bs-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Add (Hidden) SSID:</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      Type in the Name/SSID of the Network to add:<br/>
+       <input type="text" class="form-control" id="new_ssid" placeholder="" value="" required="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="sys_addnet();">Save</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="/res/sys.js"></script>

@@ -1,0 +1,186 @@
+/* Hello World Example
+
+   This example code is in the Public Domain (or CC0 licensed, at your option.)
+
+   Unless required by applicable law or agreed to in writing, this
+   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+   CONDITIONS OF ANY KIND, either express or implied.
+*/
+#include <stdio.h>
+#include "sdkconfig.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "esp_system.h"
+#include "esp_spi_flash.h"
+#include "spiram.h"
+#include "himem.h"
+#include <Wire.h>
+#include "Arduino.h"
+#include "MCP7940.h"
+/** STATUS LED IO pins: **/
+int STATUS_LED_GREEN = 23;
+int STATUS_LED_FARRED = 22;
+int STATUS_LED_RED = 21;
+int STATUS_LED_C = 26;
+int STATUS_LED_BLUE = 14;
+int STATUS_LED_A = 12;
+int FAN_PIN = 27;
+int I2C_SDA = 19;
+int I2C_SDL = 18;
+
+extern "C" void app_main(void)
+{
+  //printf("Hello world!\n");
+    printf("**Delta9 SmartPDU MK3 Manufacturing Diagnostics Firmware (Console mode)***\n");
+    initArduino();
+    /* Print chip information */
+    esp_chip_info_t chip_info;
+    esp_chip_info(&chip_info);
+    printf("This is %s chip with %d CPU core(s), WiFi%s%s, ",
+            CONFIG_IDF_TARGET,
+            chip_info.cores,
+            (chip_info.features & CHIP_FEATURE_BT) ? "/BT" : "",
+            (chip_info.features & CHIP_FEATURE_BLE) ? "/BLE" : "");
+
+    printf("silicon revision %d, ", chip_info.revision);
+
+    printf("%dMB %s flash\n", spi_flash_get_chip_size() / (1024 * 1024),
+            (chip_info.features & CHIP_FEATURE_EMB_FLASH) ? "embedded" : "external");
+
+    printf("Minimum free heap size: %d bytes\n", esp_get_minimum_free_heap_size());
+ 
+    printf("HIMEM Total: (%d) %dMB . Free: %d KB.\n",esp_himem_get_phys_size(), esp_himem_get_phys_size() / (1024 * 1024), esp_himem_get_free_size() / 1024);
+    
+    printf("SPIRAM Total: (%d) %dMB. \n",esp_spiram_get_size(), esp_spiram_get_size() / (1024 * 1024));
+    delay(2000);
+    printf("**Starting Tests...**\n");
+    Serial.begin(115200);
+    pinMode(STATUS_LED_GREEN,OUTPUT);
+    pinMode(STATUS_LED_FARRED,OUTPUT);
+    pinMode(STATUS_LED_RED,OUTPUT);
+    pinMode(STATUS_LED_C,OUTPUT);
+    pinMode(STATUS_LED_A,OUTPUT);
+    pinMode(STATUS_LED_BLUE,OUTPUT);
+    pinMode(FAN_PIN,OUTPUT);
+    Wire.begin (I2C_SDA,I2C_SDL);
+    while (1) {
+      loop();
+    }
+   
+}
+
+void led_status_test() {
+Serial.println("***BEGIN: STATUS LED Test***");
+
+Serial.println("STATUS GREEN: ON");
+digitalWrite(STATUS_LED_GREEN,HIGH);
+delay(1000);
+Serial.println("STATUS GREEN: OFF");
+digitalWrite(STATUS_LED_GREEN,LOW);
+delay(1000);
+
+Serial.println("STATUS BLUE: ON");
+digitalWrite(STATUS_LED_BLUE,HIGH);
+delay(1000);
+Serial.println("STATUS BLUE: OFF");
+digitalWrite(STATUS_LED_BLUE,LOW);
+delay(1000);
+
+Serial.println("STATUS RED: ON");
+digitalWrite(STATUS_LED_RED,HIGH);
+delay(1000);
+Serial.println("STATUS RED: OFF");
+digitalWrite(STATUS_LED_RED,LOW);
+delay(1000);
+
+Serial.println("STATUS FARRED: ON");
+digitalWrite(STATUS_LED_FARRED,HIGH);
+delay(1000);
+Serial.println("STATUS FARRED: OFF");
+digitalWrite(STATUS_LED_FARRED,LOW);
+delay(1000);
+
+Serial.println("STATUS C: ON");
+digitalWrite(STATUS_LED_C,HIGH);
+delay(1000);
+Serial.println("STATUS C: OFF");
+digitalWrite(STATUS_LED_C,LOW);
+delay(1000);
+
+Serial.println("STATUS A: ON");
+digitalWrite(STATUS_LED_A,HIGH);
+delay(1000);
+Serial.println("STATUS A: OFF");
+digitalWrite(STATUS_LED_A,LOW);
+delay(1000);
+
+
+Serial.println("***END: STATUS LED Test***");
+};
+
+
+void fan_test() {
+Serial.println("***BEGIN: FAN Test***");
+
+Serial.println("ALL FANS ON");
+digitalWrite(FAN_PIN,HIGH);
+delay(5000);
+Serial.println("ALL FANS OFF");
+digitalWrite(FAN_PIN,LOW);
+delay(1000);
+Serial.println("***END: FAN Test***");
+};
+
+void i2c_scan_test() {
+  Serial.println("***START: I2C Scan/Test***");
+  
+  Serial.println ();
+  Serial.println ("I2C scanner. Scanning ...");
+  byte count = 0;
+
+  Wire.begin();
+  for (byte i = 8; i < 120; i++)
+  {
+    Wire.beginTransmission (i);          // Begin I2C transmission Address (i)
+    if (Wire.endTransmission () == 0)  // Receive 0 = success (ACK response) 
+    {
+      Serial.print ("Found address: ");
+      Serial.print (i, DEC);
+      Serial.print (" (0x");
+      Serial.print (i, HEX);     // PCF8574 7 bit address
+      Serial.println (")");
+      count++;
+    }
+  }
+  Serial.print ("Found ");      
+  Serial.print (count, DEC);        // numbers of devices
+  Serial.println (" device(s).");
+  Serial.println("***END: I2C Scan/Test***");
+}
+void  heap_test() {
+   Serial.println("***BEGIN: Heap/Memory Test***");
+   Serial.print("HEAP Test: Free/Size: ");
+   Serial.print(ESP.getFreeHeap());
+   Serial.print("/");
+   Serial.println(ESP.getHeapSize());
+   Serial.print("PSRAM Test: Free/Size: ");
+   Serial.print(ESP.getFreePsram());
+   Serial.print("/");
+   Serial.println(ESP.getPsramSize());
+   Serial.println("***END: Heap/Memory Test***");
+}
+
+void loop() {
+  Serial.println("***Starting all Tests NOW***");
+  //heap_test();
+  //delay(1000);
+  // put your main code here, to run repeatedly:
+  led_status_test();
+  delay(1000);
+  i2c_scan_test();
+  delay(1000);
+  fan_test();
+  delay(1000);
+  Serial.println("***Finished Tests. Restarting in 10 seconds***");
+   delay(10000);
+}

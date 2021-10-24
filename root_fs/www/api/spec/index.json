@@ -1,0 +1,17 @@
+{"spectrum":{
+    "profiles":{
+       "12hd":"12H Day",
+       "16hd":"16H Day",
+       "fpd":"Flower Power",
+       "vgd":"Veg Booster",
+       "br66":"66% Blue/Red + 33% Green",
+       "br75":"75% Blue/Red + 25% Green",
+       "br50":"50% Blue + 50% Red",
+       "hvst":"Harvest Mode",
+       "srb":"Static Blue",
+       "srr":"Static Red",
+       "srg":"Static Green"
+    }
+}
+}
+ 

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title> Welcome to Delta9 NX3! </title>
+
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+<!-- JQuery + JQuery.ui !-->
+<script src="/res/js/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<link href="/res/css/jquery-ui.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="/res/js/moment.js" crossorigin="anonymous"></script>
+<script src="/res/js/popper.min.js" crossorigin="anonymous"></script>
+<!-- Bootstrap core CSS -->
+<link href="/res/css/all.min.css" rel="stylesheet">
+<link href="/res/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<link rel="stylesheet" href="/res/css/bootstrap-datetimepicker.min.css">
+<script src="/res/js/bootstrap-datetimepicker.min.js"></script>
+<!-- D9 NX3 css !-->
+<link href="/res/css/d9NX3_ss.css" rel="stylesheet">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#7952b3">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Delta9 NX3 Setup</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <p style="color: white;">
+  System IP: <span id="dash_hdr_ip"></span>
+  System MAC: <span id="dash_hdr_mac"></span>
+  </p>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="#">Sign out</a>
+    </li>
+  </ul>
+</header>
+
+<div class="container-fluid">
+<div class="d9-gradient splash">
+    <main class="col-lg-4 px-md-4 center-card">
+        <form onsubmit="$('#setup_btn').click(); return false;" method="POST" target="#" id="setup_form">
+        <div class="card ">
+            <div class="card-content">
+                <div class="card-header" >
+                <h1 id="setup_title">Welcome to Delta9 NX3!</h1>
+                </div>
+                <div class="card-body" id="setup_card">
+                <img class="img-fluid" src="/res/img/d9NX3-tiny.png" alt="d9NX3 logo"/>
+                <br/>
+                This is the D9NX3 setup wizard that will help you provision your fixture and get it set up and ready for use.<br/>
+                <br/>
+                </div>
+                <div class="card-footer" id="setup_taskbar">
+              
+                    <button type="button" class="btn btn-success" onclick="setup_step1();" id="setup_btn"><h4>Begin Setup <i class="fas fa-play"></i></h4></button>
+
+                </div>
+            </div>
+        </div>
+    </form>  
+    </main>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<script src="/res/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="/res/js/setup.js"></script>
+</body>
+</html>

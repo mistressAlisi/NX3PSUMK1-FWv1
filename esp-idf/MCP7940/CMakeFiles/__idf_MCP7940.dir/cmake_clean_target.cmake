@@ -1,0 +1,3 @@
+file(REMOVE_RECURSE
+  "libMCP7940.a"
+)

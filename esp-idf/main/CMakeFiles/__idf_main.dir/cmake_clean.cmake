@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/__idf_main.dir/FreeRTOS.cpp.obj"
+  "CMakeFiles/__idf_main.dir/FreeRTOS.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/main.cpp.obj"
+  "CMakeFiles/__idf_main.dir/main.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/cmd_adc.cpp.obj"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/cmd_adc.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/cmd_files.cpp.obj"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/cmd_files.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/cmd_i2c.cpp.obj"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/cmd_i2c.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/cmd_prov.cpp.obj"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/cmd_prov.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/cmd_rtc.cpp.obj"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/cmd_rtc.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/cmd_wifi.cpp.obj"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/cmd_wifi.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/diagnostics_main.cpp.obj"
+  "CMakeFiles/__idf_main.dir/modes/diagnostics/diagnostics_main.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/modes/production/production_main.cpp.obj"
+  "CMakeFiles/__idf_main.dir/modes/production/production_main.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/modes/setup/setup_main.cpp.obj"
+  "CMakeFiles/__idf_main.dir/modes/setup/setup_main.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/tasks/adc.cpp.obj"
+  "CMakeFiles/__idf_main.dir/tasks/adc.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/tasks/output.cpp.obj"
+  "CMakeFiles/__idf_main.dir/tasks/output.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/tasks/provisioning.cpp.obj"
+  "CMakeFiles/__idf_main.dir/tasks/provisioning.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/tasks/rtc.cpp.obj"
+  "CMakeFiles/__idf_main.dir/tasks/rtc.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/tasks/status.cpp.obj"
+  "CMakeFiles/__idf_main.dir/tasks/status.cpp.obj.d"
+  "CMakeFiles/__idf_main.dir/tasks/wifi.cpp.obj"
+  "CMakeFiles/__idf_main.dir/tasks/wifi.cpp.obj.d"
+  "libmain.a"
+  "libmain.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/__idf_main.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

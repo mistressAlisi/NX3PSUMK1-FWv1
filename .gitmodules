@@ -1,0 +1,18 @@
+[submodule "_deps/ADS1X15"]
+	path = _deps/ADS1X15
+	url = https://github.com/RobTillaart/ADS1X15
+[submodule "_deps/ArduinoJson"]
+	path = _deps/ArduinoJson
+	url = https://github.com/bblanchon/ArduinoJson.git
+[submodule "_deps/AsyncTCP"]
+	path = _deps/AsyncTCP
+	url = https://github.com/me-no-dev/AsyncTCP.git
+[submodule "_deps/ESPAsyncWebServer"]
+	path = _deps/ESPAsyncWebServer
+	url = https://github.com/me-no-dev/ESPAsyncWebServer.git
+[submodule "_deps/arduino"]
+	path = _deps/arduino
+	url = https://github.com/espressif/arduino-esp32.git
+[submodule "_deps/mklittlefs"]
+	path = _deps/mklittlefs
+	url = https://github.com/earlephilhower/mklittlefs.git

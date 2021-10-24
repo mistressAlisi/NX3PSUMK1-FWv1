@@ -1,0 +1,67 @@
+
+ <section class="section-lg">
+        <div class="container-fluid">
+
+        <div class="col-md-12">
+        <h1 class="title">Time and Output Chart</h1>
+        </div>
+        
+        </div>
+            <div class="row">
+                <div class="col-md-7 ml-auto mr-auto" style="min-height: 300px;">
+                   <canvas id="spectrumChart" style="width: 1147px; height: 431px; display: block; box-sizing: border-box;" width="1147" height="431"></canvas>
+                </div>
+                 <div class="col-md-3 ml-auto mr-auto" style="min-height: 300px;">
+                   <div class="card">
+                <div class="card-header card-header-text card-header-primary">
+                  <div class="card-text">
+                    <h4 class="card-title">User Spectrum Viewer</h4>
+                  </div>
+                  
+                </div>
+                <div class="card-body">
+                    <p>This tool enables you to visualise, and manage your custom spectrums installed in your d9NX3 fixture.</p>
+                    <p>To <strong>enable</strong> a profile use the <a href="#" href="#" onclick="db_load('sp_select',event);">Spectrum Selector tool</a>.</p>
+                   <label for="loadProfile" class="form-label">Select spectrum:</label>
+                    <select class="form-control" aria-label="Default Profile" value="Select a Profile..."  id="load_profile">
+                    <option value="" selected>Select...</option>
+
+                    </select>
+                     
+                  <br/>
+                  
+                <table class="table" id="editor_table">
+                <thead>
+                    <tr>
+                        <th scope="col">Step</th>
+                        <th scope="col">Begin</th>
+                        <th scope="col">End</th>
+                        <th scope="col">BL</th>
+                        <th scope="col">GR</th>
+                        <th scope="col">DR</th>
+                        <th scope="col">FR</th>
+                </tr>
+                </thead>
+                <tbody id="append">
+                </tbody>
+                
+                </table>
+                <input type="hidden" id="prefix" value="/pru"/>
+                
+                </div>
+</div>
+
+
+                </div>
+                
+            </div>
+       
+
+</section>
+
+
+
+
+
+<script src="/res/js/sp_usr.js"></script>
+

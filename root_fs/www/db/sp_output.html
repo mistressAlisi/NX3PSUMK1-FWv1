@@ -1,0 +1,64 @@
+
+ <section class="section-lg">
+        <div class="container-fluid">
+
+        <div class="col-md-12">
+        <h1 class="title">Current Output Spectrum</h1>
+        </div>
+        
+        </div>
+            <div class="row">
+                <div class="col-md-7 ml-auto mr-auto" style="min-height: 300px;">
+                   <canvas id="spectrumChart" style="width: 1147px; height: 431px; display: block; box-sizing: border-box;" width="1147" height="431"></canvas>
+                </div>
+                 <div class="col-md-3 ml-auto mr-auto" style="min-height: 300px;">
+                   <div class="card">
+                <div class="card-header card-header-text card-header-primary">
+                  <div class="card-text">
+                    <h4 class="card-title">Instant Control</h4>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <label for="loadProfile" class="form-label">Loaded Preset:</label>
+                    <input type="text" class="form-control" aria-label="Loaded Profile" value="Default" disabled="true" id="loadedProfile">
+                     
+                  <br/>
+                  <label for="profileSource" class="form-label">Preset Source:</label>
+                    <input type="text" class="form-control" aria-label="Profile Source" value="Default" disabled="true" id="profileSource">
+                     
+                  <br/>
+                  <label for="automaticControl" class="form-label">Automatic Control:</label>
+                  <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="automaticControl" onchange="enable_control();" checked>
+                  <label class="form-check-label" for="automaticControl">Enable</label>
+                  </div>
+                    <div class="alert alert-warning" role="alert" id="auWarning" style="display: none;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Warning</strong>! The output will not be changed automatically in this mode!
+                    </div>
+                  <br/>
+                  
+                  <label for="blueRange" class="form-label">Deep Blue</label>
+                    <input type="range" class="form-range" min="0" max="30" step="0.1" id="blueRange" onchange="update_chart();" disabled="disabled">
+                  
+                  <label for="redRange" class="form-label">Deep Red</label>
+                    <input type="range" class="form-range" min="0" max="30" step="0.1" id="redRange" onchange="update_chart();" disabled="disabled">
+                  
+                   <label for="greenRange" class="form-label">Green</label>
+                    <input type="range" class="form-range" min="0" max="25" step="0.1" id="greenRange" onchange="update_chart();" disabled="disabled">
+                  
+                  <label for="farRange" class="form-label">Far Red</label>
+                    <input type="range" class="form-range" min="0" max="4.2" step="0.1" id="farRange" onchange="update_chart();" disabled="disabled">
+                  
+                </div>
+</div>
+
+
+                </div>
+                
+            </div>
+       
+
+</section>
+<script src="/res/js/chart.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="/res/js/sp_levels.js"></script>

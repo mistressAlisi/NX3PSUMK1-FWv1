@@ -1,0 +1,10 @@
+{
+"s":[
+ {"i":"blue","l":"Static Blue","s":false},
+ {"i":"br50","l":"Blue 50%|Red 50%","s":true}  
+],
+"u":[
+ {"i":"green","l":"Static Green","s":false},
+ {"i":"br66","l":"Blue+Red 66%| Green 33%","s":false}
+]
+}

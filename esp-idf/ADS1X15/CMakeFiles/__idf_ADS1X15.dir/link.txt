@@ -1,0 +1,2 @@
+/home/rasheek/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc libADS1X15.a CMakeFiles/__idf_ADS1X15.dir/ADS1X15.cpp.obj
+/home/rasheek/.espressif/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib libADS1X15.a

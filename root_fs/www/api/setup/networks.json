@@ -1,0 +1,21 @@
+{"sys":
+    {"ssids":[
+        {"i":"Network A","n":"Network A","s":"100%"},
+        {"i":"Network B","n":"Network B","s":"90%"},
+        {"i":"Network C","n":"Network C","s":"70%"},
+        {"i":"Network A","n":"Network A","s":"100%"},
+        {"i":"Network B","n":"Network B","s":"90%"},
+        {"i":"Network C","n":"Network C","s":"70%"},
+        {"i":"Network A","n":"Network A","s":"100%"},
+        {"i":"Network B","n":"Network B","s":"90%"},
+        {"i":"Network C","n":"Network C","s":"70%"},
+        {"i":"Network A","n":"Network A","s":"100%"},
+        {"i":"Network B","n":"Network B","s":"90%"},
+        {"i":"Network C","n":"Network C","s":"70%"},
+        {"i":"Network A","n":"Network A","s":"100%"},
+        {"i":"Network B","n":"Network B","s":"90%"},
+        {"i":"Network C","n":"Network C","s":"70%"},
+        {"i":"Network A","n":"Network A","s":"100%"},
+        {"i":"Network A","n":"Network A","s":"100%"}
+    ]}
+}

@@ -1,0 +1,23 @@
+<div class="row mb-3 text-white bg-dark">
+      <div class="col-md-4"><img class="img-fluid" src="https://viridian.s3-us-west-2.amazonaws.com/viridian/img/d9-BigGrow/d9-BigGrow-BGRF.png" alt="d9 Image"/></div>
+      <div class="col-md-8"><div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Delta9 V4x:3100 Horticultural Lighting System</h1>
+        <p class="col-md-10 fs-4">Delta9 will forever change indoor horticulture: it is controllable, adjustable, year-round 'sunlight' for your plants.</p>
+        <p class="col-md-10 fs-5">
+        <strong>System IP:</strong> <span id="abt_ip"></span>
+        <strong>Mac:</strong> <span id="abt_mac"></span>
+        <strong>Version:</strong> <span id="abt_vrs"></span>
+        </p>
+        <p class="col-md-10 fs-5">&copy; 2019~2021 Ardent Lighting - Designed and Engineered in Philadelphia, PA, USA.</p>
+        <a class="btn btn-primary" href="http://www.del9.biz" target="_blank" role="button"><i class="fas fa-home"></i>&#160;D9 Home</a>
+      </div>
+</div></div>
+</div>
+
+     
+<script type="text/javascript">
+    $.getJSON("api/hdr.json",function(data){
+        $("#abt_ip").text(data.sys.ip);
+        $("#abt_mac").text(data.sys.mac);
+    });
+</script>

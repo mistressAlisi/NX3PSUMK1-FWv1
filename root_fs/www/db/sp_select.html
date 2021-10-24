@@ -1,0 +1,61 @@
+
+ <section class="section-lg">
+        <div class="container-fluid">
+
+        <div class="col-md-12">
+      
+        </div>
+        
+        </div>
+        <div class="row">
+           <div class="card">
+                <div class="card-header card-header-text card-header-primary">
+                  <div class="card-text">
+                    <h4 class="card-title">Spectrum Selector</h4>
+                  </div>
+                  </div>
+        <div class="card-body">
+
+        <p>This tool will help you instantly change spectrum profiles for your fixture. Please bear in mind that with Mesh control enabled or with manual control enabled; this parameter will be overriden!</p>      
+        </div>
+        <div class="alert alert-success" role="alert" id="changeSuccess" style="display: none;">
+        <i class="fas fa-check-circle"></i>
+        Spectrum Preset Changed!
+        </div>
+        <label for="loadProfile" class="form-label"><strong>Preset Selector:</strong></label>
+        <form id="profileForm" onSubmit="changeProfile(); return false;" method="POST" target="#">
+        <select class="form-control" aria-label="Select Profile..." id="loadProfile" name="load">    
+        </select>
+        </form>
+        <hr/>
+        <br/>
+        <br/>
+        <button type="button" class="btn btn-primary" id="p_set" data-bs-toggle="modal" data-bs-target="#confirmModal">Change Profile</button>
+        <br/>
+        <br/>
+        <hr/>
+        </div>
+        </div>
+
+       
+
+</section>
+<script src="/res/js/sp_sel.js"></script>
+<div class="modal" tabindex="-1" id="confirmModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm Profile Change</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+        <p><strong>Please confirm</strong>: Are you sure you want to change the currently running profile? Changes will be applied immediately.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="changeProfile();">Change Profile</button>
+      </div>
+    </div>
+  </div>
+</div>

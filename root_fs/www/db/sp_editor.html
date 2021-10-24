@@ -1,0 +1,257 @@
+
+ <section class="section-lg">
+        <div class="container-fluid">
+
+        <div class="col-md-12">
+        <h1 class="title">Time and Output Chart</h1>
+        </div>
+        
+        </div>
+
+
+
+            <div class="row">
+                
+                <div class="col-md-7 ml-auto mr-auto" style="min-height: 300px;">
+                
+                   <canvas id="spectrumChart" style="width: 1147px; height: 431px; display: block; box-sizing: border-box;" width="1147" height="431"></canvas>
+                </div>
+                 <div class="col-md-3 ml-auto mr-auto" style="min-height: 300px;">
+                   <div class="card">
+                <div class="card-header card-header-text card-header-primary">
+                  <div class="card-text">
+                    <h4 class="card-title">Spectrum Steps</h4>
+                  </div>
+                </div>
+                <div class="card-body">
+                <div class="alert alert-success" role="alert" id="pSaved" style="display: none;">
+                <i class="fas fa-check-circle"></i> Profile saved and ready to use!
+                </div>
+                   <label for="loadProfile" class="form-label">Editing spectrum:</label>
+                    <input type="text" class="form-control" aria-label="Loaded Profile" value="Select a Profile..." disabled="true" id="loadedProfile">
+                     
+                  <br/>
+                  
+                <table class="table" id="editor_table">
+                <thead>
+                    <tr>
+                        <th scope="col">Step</th>
+                        <th scope="col">Begin</th>
+                        <th scope="col">End</th>
+                        <th scope="col">BL</th>
+                        <th scope="col">GR</th>
+                        <th scope="col">DR</th>
+                        <th scope="col">FR</th>
+                </tr>
+                </thead>
+                <tbody id="append">
+                </tbody>
+                
+                </table>
+                <button type="button" class="btn btn-primary" id="e_add" data-bs-toggle="modal" data-bs-target="#addStepModal" disabled="true">Add Step</button>
+                <button type="button" class="btn btn-danger" id="e_del" disabled="true" onclick="sEdit.deleteStep();">Delete Step</button>
+                <button type="button" class="btn btn-success" id="e_save" disabled="true" onclick="sEdit.saveProfile();">Save</button>  
+                
+              
+                </div>
+</div>
+
+
+                </div>
+                
+            </div>
+       
+
+</section>
+
+<div class="modal fade" id="addStepModal" tabindex="-1" aria-labelledby="addStepModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addStepModalLabel">Add Spectrum Step</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text">Please fill out the form to create a new spectrum step.</p>
+        <h5>Step Timing:</h5>
+         <div class="alert alert-warning d-flex align-items-center d-none" role="alert" id="time_alert">
+        <i class="fas fa-exclamation-triangle"></i>
+        <div>
+            Please double check your time entry!
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <div class="input-group date" data-target-input="nearest">
+                <h5>Begin:</h5>
+                    <input type="text" id="starttime"  class="form-control datetimepicker-input" data-target="#starttime"/>
+                    <div class="input-group-append" data-target="#starttime" data-toggle="datetimepicker">
+                        <div class="input-group-text"><h5><i class="fas fa-clock"></i></h5></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group date" data-target-input="nearest">
+                <h5>End:</h5>
+                    <input type="text" id="endtime"  class="form-control datetimepicker-input" data-target="#endtime"/>
+                    <div class="input-group-append" data-target="#endtime" data-toggle="datetimepicker">
+                        <div class="input-group-text"><h5><i class="fas fa-clock"></i></h5></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <hr/>
+        <input type="hidden" id="editStep" value=""/>
+        <h5>Output Levels:</h5>
+        <div class="alert alert-primary d-flex align-items-center" role="alert" id="pomax_alert">
+        <i class="far fa-chart-bar"></i>
+        <div>
+        &#160;Current Output: <span id="watts_total">0</span>/1,100W. (Cannot Exceed POmax)
+        </div>
+        </div>
+        <label for="blueRange" class="form-label">Deep Blue (<span id="db_pct">0</span>%):</label>
+                    <input type="range" class="form-range" min="0" max="30" step="0.1" id="blueRange" onchange="sEdit.checkModal(event);" value="0">
+                  
+                  <label for="redRange" class="form-label">Deep Red (<span id="dr_pct">0</span>%):</label>
+                    <input type="range" class="form-range" min="0" max="30" step="0.1" id="redRange" onchange="sEdit.checkModal(event);" value="0">
+                  
+                   <label for="greenRange" class="form-label">Green (<span id="gr_pct">0</span>%):</label>
+                    <input type="range" class="form-range" min="0" max="25" step="0.1" id="greenRange" onchange="sEdit.checkModal(event);" value="0">
+                  
+                  <label for="farRange" class="form-label">Far Red (<span id="fr_pct">0</span>%):</label>
+                    <input type="range" class="form-range" min="0" max="4.2" step="0.1" id="farRange" onchange="sEdit.checkModal(event);" value="0">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="create_btn" onclick="sEdit.createStep(event);">Create step</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade" id="loadModal" tabindex="-1" aria-labelledby="loadModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loadModalLabel">Create or Open Spectrum</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text">Please select the spectrum to open and edit; or type in a name to create a new profile:</p>
+       
+
+        <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+               
+                <h5>Load Existing:</h5>
+                    <select id="load_profile" class="form-select" aria-label="Default select example">
+                    <option selected value="">Select Existing profile...</option>
+                    </select>
+                
+            </div>
+            <br/>
+            <div class="form-group">
+               
+                <h5>Create New Profile:</h5>
+                    <input type="text" class="form-control" id="new-profile" placeholder="New Profile Name">
+                </div>
+            <br/>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="create_btn" onclick="sEdit.createSpectrum(event);">Open Spectrum</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="modal fade" id="editStepModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Delete Existing Step</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text">Please select the step to delete:</p>
+       
+
+        <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+               
+                <h5>Step to delete:</h5>
+                    <select id="delete_step" class="form-select">
+                    <option selected value="">Select step...</option>
+                    </select>
+                
+            </div>
+            <br/>
+          
+            <br/>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="delete_step" onclick="sEdit._deleteStepExec();">Delete Step</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade" id="saveModal" tabindex="-1" aria-labelledby="saveModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="saveModal">Confirm name and save:</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text">Please confirm the name for the spectrum to be saved as. System profiles cannot be modified; all changes will be saved as user profiles.<br/> If the name is the same as an existing profile, it will be overwritten:</p>
+       
+        <form id="saveForm" method="POST" action="#" onsubmit="sEdit._saveProfile(); return False;">
+        <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+               
+                <h5>Profile Name:</h5>
+                    <input type="text" id="profile_name"  class="form-control datetimepicker-input""/>
+                
+            </div>
+            <br/>
+          
+            <br/>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+      <input type="hidden" id="pid" name="pid" value=""/>
+      <input type="hidden" id="pdata" name="pdata" value=""/>
+      </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="save_profile" onclick="sEdit._saveProfile();">Save Profile</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<script src="/res/js/sp_editor.js"></script>
